@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View all Passwords</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        nav a {
+            display: inline-block;
+            margin: 10px 10px 20px 0;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: #0056b3;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>View all Passwords</h1>
+
+    <nav>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/add">Add New Password</a>
+        <a href="/generate">Generate Password</a>
+    </nav>
+
+    <table border="1" cellpadding="10" cellspacing="0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Website / Application</th>
+                <th>Username / Email</th>
+                <th>Password</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% passwords.forEach(password => { %>
+                <tr>
+                    <td><%= password.id %></td>
+                    <td><%= password.app_name %></td>
+                    <td><%= password.username %></td>
+                    <td><%= password.password %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    
+</body>
+</html>
